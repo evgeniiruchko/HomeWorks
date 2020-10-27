@@ -6,6 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+
+        boolean isBool;
+        byte isByte;
+        long isLong;
+        double isDouble;
+        char isChar;
+
         float a, b, c, d;
         int i, j;
         String name;
