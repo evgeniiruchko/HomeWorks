@@ -55,6 +55,7 @@ public class Main {
         System.out.print("Введите год: ");
         year = in.nextShort();
         System.out.println(HomeWork1.task8(year));
+
     }
 
 }
