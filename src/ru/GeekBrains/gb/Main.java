@@ -16,6 +16,9 @@ public class Main {
             case 1:
                 HomeWork1.RunHomeWork1();
                 break;
+            case 2:
+                HomeWork2.RunHomeWork2();
+                break;
             default:
                 System.out.println("Такого ДЗ не существует");
         }
