@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class HomeWork3 {
     public static void RunHomeWork3(){
         // первое задание 3 урока
-        byte newGame = 0;
+        byte newGame = 1;
         Scanner inNewGame = new Scanner(System.in);
         System.out.println("Я хочу сыграть с тобой в игру. Ты должен угадать число от 0 до 9 с трёх попыток. Время пошло");
         while (newGame == 1) {
@@ -62,7 +62,7 @@ public class HomeWork3 {
         Random random = new Random();
         byte randomIndexWord = (byte)random.nextInt(words.length);
         String randomWord = words[randomIndexWord];
-        System.out.println("Загаданное слово: " + randomWord + "  " + randomWord.charAt(1));  //вывод для проверки. Убрать
+        //System.out.println("Загаданное слово: " + randomWord + "  " + randomWord.charAt(1));  //вывод для проверки. Убрать
         while (randomWord != userWord){
             System.out.print("Вводи слово: ");
             userWord = inWord.nextLine();
