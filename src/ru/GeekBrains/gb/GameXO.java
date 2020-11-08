@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameXO {
-    public static final int SIZE = 3;
-    public static final int COUNTFORWIN = 3;
+    public static final int SIZE = 5;
+    public static final int COUNTFORWIN = 4;
     public static char[][] map;
 
     public static final char DOT_X = 'X';
@@ -40,7 +40,8 @@ public class GameXO {
                 break;
             }
 
-            compTurn();
+            //compTurn();
+            compTurnTest();
             if (isVictory(DOT_O)){
                 System.out.println("Машина выйграла");
                 gameOver = true;
@@ -119,13 +120,54 @@ public class GameXO {
         System.out.println("Ход машины");
         printMap();
     }
+
     public static void compTurnTest(){
-        Random random = new Random();
-        int x, y;
-        do {
-            x = random.nextInt(SIZE);
-            y = random.nextInt(SIZE);
-        } while (!isValidFild(x,y));
+        int countX, countY, x = -1 ,y = -1;
+        for (int i = 0; i < SIZE; i++){
+            countX = 0;
+            for (int j = 0; j < SIZE; j++){
+                if (map[i][j] == DOT_X){
+                    countX++;
+                }
+                if (countX == 0 && map[i][j] == DOT_EMPTY && j <= SIZE - COUNTFORWIN){
+                    if (map[i][j+1] == DOT_X) {
+                        x = i;
+                        y = j;
+                        countX++;
+                    }
+                }
+                if (countX != 0 && map[i][j] == DOT_EMPTY && x == -1 && y == -1){
+                    x = i;
+                    y = j;
+                    countX++;
+                }
+
+
+
+                if (map[i][j] == DOT_O){
+                    countX = 0;
+                    x = -1;
+                    y = -1;
+                }
+
+                if (countX == COUNTFORWIN){
+                    break;
+                }
+
+            }
+            if (countX == COUNTFORWIN){
+                break;
+            }
+            x = -1;
+            y = -1;
+        }
+        if (x == -1 || y == -1){
+            Random random = new Random();
+            do {
+                x = random.nextInt(SIZE);
+                y = random.nextInt(SIZE);
+            } while (!isValidFild(x,y));
+        }
         map[x][y] = DOT_O;
         System.out.println("Ход машины");
         printMap();
