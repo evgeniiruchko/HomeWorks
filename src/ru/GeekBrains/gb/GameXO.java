@@ -122,52 +122,142 @@ public class GameXO {
     }
 
     public static void compTurnTest(){
-        int countX, countY, x = -1 ,y = -1;
+        int countHorX = 0, countHorO = 0, x = 0, y = 0, xHorX = -1 ,yHorX = -1, xHorO = -1 ,yHorO = -1;
+        int countVerX = 0, countVerO = 0,  xVerX = -1 ,yVerX = -1, xVerO = -1 ,yVerO = -1;
         for (int i = 0; i < SIZE; i++){
-            countX = 0;
+            countHorX = 0;
+            countHorO = 0;
             for (int j = 0; j < SIZE; j++){
+                //проверка по горизонтали
                 if (map[i][j] == DOT_X){
-                    countX++;
+                    countHorX++;
                 }
-                if (countX == 0 && map[i][j] == DOT_EMPTY && j <= SIZE - COUNTFORWIN){
+                if (map[i][j] == DOT_O){
+                    countHorO++;
+                }
+                if (countHorX == 0 && map[i][j] == DOT_EMPTY && j <= SIZE - COUNTFORWIN){
                     if (map[i][j+1] == DOT_X) {
-                        x = i;
-                        y = j;
-                        countX++;
+                        xHorX = i;
+                        yHorX = j;
+                        countHorX++;
                     }
                 }
-                if (countX != 0 && map[i][j] == DOT_EMPTY && x == -1 && y == -1){
-                    x = i;
-                    y = j;
-                    countX++;
+                if (countHorO == 0 && map[i][j] == DOT_EMPTY && j <= SIZE - COUNTFORWIN) {
+                    if (map[i][j + 1] == DOT_O) {
+                        xHorO = i;
+                        yHorO = j;
+                        countHorO++;
+                    }
                 }
+                if (countHorX != 0 && map[i][j] == DOT_EMPTY && xHorX == -1 && yHorX == -1){
+                    xHorX = i;
+                    yHorX = j;
+                    countHorX++;
+                }
+                if (countHorO != 0 && map[i][j] == DOT_EMPTY && xHorO == -1 && yHorO == -1){
+                    xHorO = i;
+                    yHorO = j;
+                    countHorO++;
+                }
+                // конец проверки по горизонтали
 
+                //проверка по вертикали
+//                if (map[j][i] == DOT_X){
+//                    countVerX++;
+//                }
+//                if (map[j][i] == DOT_O){
+//                    countVerO++;
+//                }
+//                if (countVerX == 0 && map[j][i] == DOT_EMPTY && j <= SIZE - COUNTFORWIN){
+//                    if (map[j+1][i] == DOT_X) {
+//                        xVerX = j;
+//                        yVerX = i;
+//                        countVerX++;
+//                    }
+//                }
+//                if (countVerO == 0 && map[j][i] == DOT_EMPTY && j <= SIZE - COUNTFORWIN) {
+//                    if (map[j+1][i] == DOT_O) {
+//                        xVerO = j;
+//                        yVerO = i;
+//                        countVerO++;
+//                    }
+//                }
+//                if (countVerX != 0 && map[j][i] == DOT_EMPTY && xVerX == -1 && yVerX == -1){
+//                    xVerX = j;
+//                    yVerX = i;
+//                    countVerX++;
+//                }
+//                if (countVerO != 0 && map[j][i] == DOT_EMPTY && xVerO == -1 && yVerO == -1){
+//                    xVerO = j;
+//                    yVerO = i;
+//                    countVerO++;
+//                }
+                // конец проверки по вертикали
 
 
                 if (map[i][j] == DOT_O){
-                    countX = 0;
-                    x = -1;
-                    y = -1;
+                    countHorX = 0;
+                    xHorX = -1;
+                    yHorX = -1;
+                }
+                if (map[i][j] == DOT_X){
+                    countHorO = 0;
+                    xHorO = -1;
+                    yHorO = -1;
+                }
+                if (map[j][i] == DOT_O){
+                    countVerX = 0;
+                    xVerX = -1;
+                    yVerX = -1;
+                }
+                if (map[j][i] == DOT_X){
+                    countVerO = 0;
+                    xVerO = -1;
+                    yVerO = -1;
                 }
 
-                if (countX == COUNTFORWIN){
+                if (countHorX == COUNTFORWIN || countHorO == COUNTFORWIN || countVerX == COUNTFORWIN || countVerO == COUNTFORWIN){
                     break;
                 }
 
             }
-            if (countX == COUNTFORWIN){
+            if (countHorX == COUNTFORWIN || countHorO == COUNTFORWIN || countVerX == COUNTFORWIN || countVerO == COUNTFORWIN){
                 break;
             }
-            x = -1;
-            y = -1;
+            xHorX = -1;
+            yHorX = -1;
+            xHorO = -1;
+            yHorO = -1;
+            xVerX = -1;
+            yVerX = -1;
+            xVerO = -1;
+            yVerO = -1;
         }
-        if (x == -1 || y == -1){
+        if (xHorX == -1 || yHorX == -1 || xHorO == -1 || yHorO == -1 || xVerX == -1 || yVerX == -1 || xVerO == -1 || yVerO == -1){
             Random random = new Random();
             do {
                 x = random.nextInt(SIZE);
                 y = random.nextInt(SIZE);
             } while (!isValidFild(x,y));
         }
+
+        if (countHorX == COUNTFORWIN){
+            x = xHorX;
+            y = yHorX;
+        }
+        if (countVerX == COUNTFORWIN){
+            x = xVerX;
+            y = yVerX;
+        }
+        if (countHorO == COUNTFORWIN){
+            x = xHorO;
+            y = yHorO;
+        }
+        if (countVerO == COUNTFORWIN){
+            x = xVerO;
+            y = yVerO;
+        }
+
         map[x][y] = DOT_O;
         System.out.println("Ход машины");
         printMap();
