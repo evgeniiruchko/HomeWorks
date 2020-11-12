@@ -22,6 +22,9 @@ public class Main {
             case 3:
                 HomeWork3.RunHomeWork3();
                 break;
+            case 4:
+                GameXO.runGameXO();
+                break;
             default:
                 System.out.println("Такого ДЗ не существует");
         }
