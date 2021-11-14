@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.algorithms.linckedStack;
 
 import java.util.ListIterator;
 

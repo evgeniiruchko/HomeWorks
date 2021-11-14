@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.algorithms.stackAndQueue;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.JavaSyntax;
 
 import java.lang.reflect.Array;
 import java.util.Random;

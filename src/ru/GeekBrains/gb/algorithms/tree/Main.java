@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb.tree;
+package ru.GeekBrains.gb.algorithms.tree;
 
 public class Main {
     public static void main(String[] args) {

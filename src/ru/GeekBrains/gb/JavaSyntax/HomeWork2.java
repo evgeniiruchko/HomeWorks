@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.JavaSyntax;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 

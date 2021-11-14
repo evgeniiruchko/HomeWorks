@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.algorithms.stackAndQueue;
 
 public class MyDec<T> {
     private T[] list;

@@ -1,8 +1,6 @@
-package ru.GeekBrains.gb;
+package ru.GeekBrains.gb.algorithms.linckedStack;
 
-import java.util.Iterator;
 import java.util.ListIterator;
-import java.util.function.Consumer;
 
 public class MyLinkedStack<T> {
     private MyLinkedList<T> list;

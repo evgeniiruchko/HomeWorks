@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb.graph;
+package ru.GeekBrains.gb.algorithms.graph;
 
 public class DepthFirstPaths extends Paths{
 

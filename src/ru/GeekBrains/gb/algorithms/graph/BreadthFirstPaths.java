@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb.graph;
+package ru.GeekBrains.gb.algorithms.graph;
 
 import java.util.LinkedList;
 

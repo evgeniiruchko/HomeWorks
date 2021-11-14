@@ -1,4 +1,4 @@
-package ru.GeekBrains.gb.recursion;
+package ru.GeekBrains.gb.algorithms.recursion;
 
 public class Main {
     static int[] costs = new int[]{10, 18, 3, 10, 20};
