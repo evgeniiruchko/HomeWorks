@@ -1,13 +1,14 @@
 package ru.geekbrains.spring.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.webjars.NotFoundException;
 import ru.geekbrains.spring.entities.Student;
 import ru.geekbrains.spring.repositories.StudentRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -16,7 +17,12 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     public Student getStudentById(Long id) {
-        return studentRepository.getById(id);
+        return studentRepository.findById(id).orElseThrow(() -> new NotFoundException("Не найдено"));
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<Void> handleNotFoundException(NotFoundException e) {
+        return ResponseEntity.notFound().build();
     }
 
     public List<Student> getAllStudents() {
