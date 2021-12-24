@@ -9,7 +9,7 @@ import ru.geekbrains.spring.services.StudentService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/students")
 public class StudentController {
